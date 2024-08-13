@@ -2,8 +2,9 @@
 
 <div>
     <p>タイトル: <%=@post.title%></p>
-    <p>コメント: <%=@post.content%></p>
     <p>ジャンル: <%=@post.genre%></p>
+    <p>コメント: <%=@post.content%></p>
+    <p>投稿日: <%=@post.created_at%></p>
     <img src="<%= "/post_images/#{@post.image_name}" %>">
 </div>
 

@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user,{only: [:edit,:update,:index,:show,:destroy]}
+  before_action :authenticate_user,{only: [:edit,:update,:index,:show,:destroy,:logout]}
   before_action :forbid_login_user,{only: [:login,:login_form,:new,:create]}
   before_action :ensure_correct_user,{only: [:edit,:update]}
 
     def index
-      @users=User.all.order(created_at: :asc)
+      @users=User.all
     end
     def new
       @user=User.new
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         redirect_to("/users/index")
       else
         flash[:alert] = "アカウントを削除できませんでした"
-        redirect_to("/users/index")
+        render("users/index")
       end
     end
 

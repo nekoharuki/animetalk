@@ -39,10 +39,11 @@ class PostsController < ApplicationController
     end
 
     if @post.save
-      flash[:notice] = "ユーザー情報を編集しました"
+      flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      flash[:alert] = "投稿を編集できませんでした"
+      render("posts/index")
     end
   end
 
@@ -61,9 +62,4 @@ class PostsController < ApplicationController
     end
   end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :content, :genre, :image)
-  end
 end
