@@ -1,0 +1,14 @@
+<h1><%=@post.title%>の詳細ページ</h1>
+
+<div>
+    <p>タイトル: <%=@post.title%></p>
+    <p>コメント: <%=@post.content%></p>
+    <p>ジャンル: <%=@post.genre%></p>
+    <img src="<%= "/post_images/#{@post.image_name}" %>">
+</div>
+
+<%=link_to("編集","/posts/#{@post.id}/edit")%>
+<%= link_to("削除", "/posts/#{@post.id}/destroy") %>
+<br>
+<br>
+<%=link_to("一覧へ","/posts/index")%>

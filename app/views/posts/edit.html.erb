@@ -1,0 +1,35 @@
+<h1>投稿編集</h1>
+
+<%= form_tag("/posts/#{@post.id}/update",{multipart: true}) do %>
+
+<div>
+    <label for="title">名前</label>
+    <input type="text" name="title" id="title" value="<%= @post.title %>">
+</div>
+
+  <div>
+    <label for="genre" class="form-label">ジャンル</label>
+    <select class="form-select" name="genre" id="genre">
+      <option value="SF">SF</option>
+      <option value="アクション">アクション</option>
+      <option value="コメディー">コメディー</option>
+    </select>
+  </div> 
+
+<div>
+    <label for="content">内容</label>
+    <textarea rows="10" cols="50" name="content" id="content"><%= @post.content %></textarea>
+  </div> 
+
+  <div>
+  <label for="image">画像</label>
+  <input name="image" type="file">
+  </div>
+  
+
+  <input type="submit" value="更新">
+<% end %> 
+<br>
+<div>
+  <%= link_to("詳細ページへ", "/posts/#{@post.id}/show") %>
+</div>

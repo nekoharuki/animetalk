@@ -1,0 +1,23 @@
+<h1>アカウント新規登録</h1>
+<%= form_tag("/users/create") do %>
+
+<div>
+<p>name</p>
+<input type="text" name="name">
+</div>
+
+<div>
+<p>email</p>
+<input type="email" name="email">
+</div>
+
+<div>
+<p>password</p>
+<input type="password" name="password">
+</div>
+
+<br>
+
+<input type="submit">
+
+<%end%>

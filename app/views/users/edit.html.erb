@@ -1,0 +1,26 @@
+<h1>編集ページ</h1>
+
+<%= form_tag("/users/#{@user.id}/update") do %>
+
+<div>
+<p>name</p>
+<input type="text" name="name" value="<%=@user.name%>">
+</div>
+
+<div>
+<p>email</p>
+<input type="email" name="email" value="<%=@user.email%>">
+</div>
+
+<div>
+<p>password</p>
+<input type="password" name="password" value="<%=@user.password%>">
+</div>
+
+<br>
+
+<input type="submit" value="更新">
+
+<%end%>
+<br>
+<%=link_to("詳細へ","/users/#{@user.id}/show")%>

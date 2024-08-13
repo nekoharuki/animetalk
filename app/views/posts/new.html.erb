@@ -1,0 +1,29 @@
+<h1>新規投稿</h1>
+
+<%= form_tag("/posts/create") do %>
+
+   <div>
+    <label for="title">名前</label>
+    <input type="text" name="title" id="title">
+  </div>
+
+ <div>
+    <label for="genre" class="form-label">ジャンル</label>
+    <select class="form-select" name="genre" id="genre">
+      <option value="SF">SF</option>
+      <option value="アクション">アクション</option>
+      <option value="コメディー">コメディー</option>
+    </select>
+  </div> 
+
+  <div>
+    <label for="content">内容</label>
+    <textarea rows="10" cols="50" name="content" id="content"></textarea>
+  </div>
+  
+  <input type="submit" value="投稿">
+<% end %> 
+<br>
+<div>
+  <%= link_to("一覧へ", "/posts/index") %>
+</div>

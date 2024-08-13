@@ -1,0 +1,9 @@
+<h1>ユーザーの一覧</h1>
+
+<% @users.each do |user| %>
+<div>
+<%=link_to(user.name,"/users/#{user.id}/show")%>
+</div>
+<%end%>
+<br>
+<%=link_to("新規登録","/users/new")%>
