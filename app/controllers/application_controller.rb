@@ -22,7 +22,15 @@ class ApplicationController < ActionController::Base
   def ensure_correct_user
     if @current_user.id!=params[:id].to_i
       flash[:notice]="あなたにはその権限がありません"
-      redirect_to("/posts/index")
+      redirect_to("/users/index")
+    end
+  end
+
+  def render_404
+    respond_to do |format|
+      format.html { render file: Rails.public_path.join('404.html'), status: :not_found }
+      format.json { render json: { error: 'Not Found' }, status: :not_found }
+      format.all { render nothing: true, status: :not_found }
     end
   end
 

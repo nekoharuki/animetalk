@@ -2,8 +2,29 @@
 
 <div>
     <p>タイトル: <%=@post.title%></p>
-    <p>ジャンル: <%=@post.genre%></p>
+
+    <% if @post.genre == "SF" %>
+    <p>ジャンル: 
+    <%=link_to(@post.genre,"/posts/sf")%>
+    </p>
+    <%end%>
+
+    <% if @post.genre == "アクション" %>
+    <p>ジャンル: 
+    <%=link_to(@post.genre,"/posts/action")%>
+    </p>
+    <%end%>
+
+    <% if @post.genre == "コメディー" %>
+    <p>ジャンル: 
+    <%=link_to(@post.genre,"/posts/comedy")%>
+    </p>
+    <%end%>
+
     <p>コメント: <%=@post.content%></p>
+    <p>投稿者:
+    <%=link_to(@user.name,"/users/#{@user.id}/show") %>
+    </p>
     <p>投稿日: <%=@post.created_at%></p>
     <img src="<%= "/post_images/#{@post.image_name}" %>">
 </div>

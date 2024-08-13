@@ -49,6 +49,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user=@post.user
   end
 
   def destroy
@@ -61,5 +62,13 @@ class PostsController < ApplicationController
       render("posts/index")
     end
   end
-
+  def sf
+    @posts=Post.where(genre: "SF")
+  end
+  def action
+    @posts=Post.where(genre: "アクション")
+  end
+  def comedy
+    @posts=Post.where(genre: "コメディー")
+  end
 end

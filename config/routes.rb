@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   get "logout" => "users#logout"
 
+  get "posts/sf" => "posts#sf"
+  get "posts/action" => "posts#action"
+  get "posts/comedy" => "posts#comedy"
   post "posts/create" => "posts#create"
   post "posts/:id/update" => "posts#update"
   get "posts/index" => "posts#index"
@@ -21,4 +24,7 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "/home/about" => "home#about"
+
+  match '*path', to: 'application#render_404', via: :all
+
 end
