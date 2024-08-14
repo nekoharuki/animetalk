@@ -26,6 +26,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_review
+    @review=Review.find_by(id: params[:id])
+    if @review.user_id!=@current_user.id
+      flash[:notice]="あなたにはその権限がありません"
+      redirect_to("/posts/#{@review.post_id}/show")
+    end
+  end
+
+
+
   def render_404
     respond_to do |format|
       format.html { render file: Rails.public_path.join('404.html'), status: :not_found }

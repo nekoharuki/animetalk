@@ -8,10 +8,6 @@
     <p>email: <%=@user.email%></p>
 </div>
 
-<div>
-    <p>password: <%=@user.password%></p>
-</div>
-
 <%=link_to("編集","/users/#{@user.id}/edit")%>
 <%=link_to("削除","/users/#{@user.id}/destroy")%>
 <br>

@@ -51,6 +51,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user=@post.user
     @reviews = Review.where(post_id: @post.id)
+    @current_user=User.find_by(id: session[:user_id])
   end
 
   def destroy

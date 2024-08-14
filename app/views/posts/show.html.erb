@@ -29,9 +29,10 @@
     <p>画像:</p>
     <img src="<%= "/post_images/#{@post.image_name}" %>">
 </div>
-
+<%if @current_user.id==@user.id %>
 <%=link_to("編集","/posts/#{@post.id}/edit")%>
 <%= link_to("削除", "/posts/#{@post.id}/destroy") %>
+<%end%>
 <br>
 
 <h1>レビュー一覧</h1>
@@ -46,8 +47,10 @@
             <%=link_to(@user.name,"/users/#{@user.id}/show")%>
         </p>
     </div>
+    <% if @current_user.id==review.user_id %>
     <%=link_to("編集","/reviews/#{review.id}/edit")%>
     <%=link_to("削除","/reviews/#{review.id}/destroy")%>
+    <%end%>
 <% end %>
 <p>-----------------------------------------------------------</p>
 <br>
