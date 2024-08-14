@@ -50,6 +50,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user=@post.user
+    @reviews = Review.where(post_id: @post.id)
   end
 
   def destroy

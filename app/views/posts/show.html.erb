@@ -26,11 +26,42 @@
     <%=link_to(@user.name,"/users/#{@user.id}/show") %>
     </p>
     <p>投稿日: <%=@post.created_at%></p>
+    <p>画像:</p>
     <img src="<%= "/post_images/#{@post.image_name}" %>">
 </div>
 
 <%=link_to("編集","/posts/#{@post.id}/edit")%>
 <%= link_to("削除", "/posts/#{@post.id}/destroy") %>
 <br>
+
+<h1>レビュー一覧</h1>
+<% @reviews.each do |review| %>
+<% @user=User.find_by(id: review.user_id)%>
+    <div>
+        <p>コメント: <%= review.comment %></p>
+        <p>評価点数: <%= review.point %></p>
+        <p>投稿日: <%= review.created_at %></p>
+        <p>投稿者:
+            <%=link_to(@user.name,"/users/#{@user.id}/show")%>
+        </p>
+        <p>-----------------------------------------------------------</p>
+    </div>
+<% end %>
+<br>
+
+<%= form_tag("/reviews/create") do %>
+<h1>レビューを投稿</h1>
+<div>
+    <label for="comment">レビュー</label>
+    <textarea rows="10" cols="50" name="comment" id="comment"></textarea>
+</div>
+<div>
+    <label for="point">評価点数</label>
+    <input type="number" name="point" id="point">
+</div>
+<input type="hidden" name="post_id" value="<%=@post.id%>">
+<br>
+    <input type="submit" value="レビューを投稿">
+<%end%>
 <br>
 <%=link_to("一覧へ","/posts/index")%>
