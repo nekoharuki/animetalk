@@ -15,4 +15,32 @@ class ReviewsController < ApplicationController
       render("posts/show")
     end
   end
+
+  def edit
+    @review=Review.find_by(id: params[:id])
+  end
+
+  def update
+    @review=Review.find_by(id: params[:id])
+    @review.comment=params[:comment]
+    @review.point=params[:point]
+    if @review.save
+      flash[:notice]="レビューの編集しました"
+      redirect_to("/posts/#{@review.post_id}/show")
+    else
+      flash[:alert]="レビューの編集ができませんでした"
+      render("reviews/edit")
+    end
+  end
+
+  def destroy
+    @review=Review.find_by(id: params[:id])
+    if @review.destroy
+      flash[:notice]="レビューを削除しました"
+      redirect_to("/posts/#{@review.post_id}/show")
+    else
+      flash[:alert]="レビューの削除ができませんでした"
+      render("posts/index")
+    end
+  end
 end

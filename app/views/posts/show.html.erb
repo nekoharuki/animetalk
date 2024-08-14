@@ -38,15 +38,18 @@
 <% @reviews.each do |review| %>
 <% @user=User.find_by(id: review.user_id)%>
     <div>
+        <p>-----------------------------------------------------------</p>
         <p>コメント: <%= review.comment %></p>
         <p>評価点数: <%= review.point %></p>
         <p>投稿日: <%= review.created_at %></p>
         <p>投稿者:
             <%=link_to(@user.name,"/users/#{@user.id}/show")%>
         </p>
-        <p>-----------------------------------------------------------</p>
     </div>
+    <%=link_to("編集","/reviews/#{review.id}/edit")%>
+    <%=link_to("削除","/reviews/#{review.id}/destroy")%>
 <% end %>
+<p>-----------------------------------------------------------</p>
 <br>
 
 <%= form_tag("/reviews/create") do %>

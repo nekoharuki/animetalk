@@ -1,0 +1,16 @@
+<h1>レビューの編集</h1>
+
+<%= form_tag("/reviews/#{@review.id}/update") do %>
+<div>
+    <label for="comment">レビュー</label>
+    <textarea rows="10" cols="50" name="comment" id="comment"><%=@review.comment%></textarea>
+</div>
+<div>
+    <label for="point">評価点数</label>
+    <input type="number" name="point" id="point" value="<%=@review.point%>">
+</div>
+<br>
+    <input type="submit" value="レビューを投稿">
+<%end%>
+<br>
+<%=link_to("投稿へ","/posts/#{@review.post_id}/show")%>

@@ -43,7 +43,7 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     else
       flash[:alert] = "投稿を編集できませんでした"
-      render("posts/index")
+      render("posts/edit")
     end
   end
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   post "reviews/create" => "reviews#create"
+  get "reviews/:id/edit" => "reviews#edit"
+  post "reviews/:id/update" => "reviews#update"
+  get "reviews/:id/destroy" => "reviews#destroy"
 
   get "login" => "users#login_form"
   post "login" => "users#login"
