@@ -240,7 +240,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (~> 3.1.11)
   bootsnap
   capybara
   carrierwave (~> 2.0)
