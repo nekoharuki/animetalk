@@ -50,6 +50,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user=@post.user
+    @likes_count=Like.where(post_id: @post.id).count
     @reviews = Review.where(post_id: @post.id)
     @current_user=User.find_by(id: session[:user_id])
   end

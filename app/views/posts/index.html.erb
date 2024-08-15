@@ -5,16 +5,19 @@
     <li>
 
     <%= link_to(post.title, "/posts/#{post.id}/show") %>
-    
+
+    <%if post.user_id!=@current_user.id %>
+
     <% if Like.find_by(post_id: post.id, user_id: @current_user.id) %>
     <%= link_to "いいねを取り消す", "/likes/#{post.id}/destroy", data: { 'turbo-method' => :post } %>
-    <%@num=Like.where(post_id: post.id).count%>
-    <%=@num%>
+
     <% else %>
     <%= link_to "いいね", "/likes/#{post.id}/create", data: { 'turbo-method' => :post } %>
+    <% end %>
+    <%end%>
+
     <%@num=Like.where(post_id: post.id).count%>
     <%=@num%>
-    <% end %>
 
     </li>
     </div>
