@@ -48,6 +48,10 @@
 <%=flash[:notice]%>
 <%end%>
 
+<%if flash[:alert]%>
+<%=flash[:alert]%>
+<%end%>
+
 </header>
     <%= yield %>
   </body>

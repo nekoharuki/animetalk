@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "reviews/create" => "reviews#create"
   get "reviews/:id/edit" => "reviews#edit"
   post "reviews/:id/update" => "reviews#update"
-  get "reviews/:id/destroy" => "reviews#destroy"
+  post "reviews/:id/destroy" => "reviews#destroy"
 
   get "login" => "users#login_form"
   post "login" => "users#login"
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get "posts/new" => "posts#new"
   get "posts/:id/edit" => "posts#edit"
   get "posts/:id/show" => "posts#show"
-  get "posts/:id/destroy" => "posts#destroy"
+  post "posts/:id/destroy" => "posts#destroy"
 
   post "users/create" => "users#create"
   post "users/:id/update" => "users#update"
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "users/new" => "users#new"
   get "users/:id/edit" => "users#edit"
   get "users/:id/show" => "users#show"
-  get "users/:id/destroy" => "users#destroy"
+  post "users/:id/destroy" => "users#destroy"
 
   get "/" => "home#top"
   get "/home/about" => "home#about"

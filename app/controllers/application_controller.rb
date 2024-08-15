@@ -7,21 +7,21 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if @current_user==nil
-      flash[:notice]="まだログインできていません"
+      flash[:alert]="まだログインできていません"
       redirect_to("/login")
     end
   end
 
   def forbid_login_user
     if @current_user
-      flash[:notice]="現在ログイン中です"
+      flash[:alert]="現在ログイン中です"
       redirect_to("/posts/index")
     end
   end
 
   def ensure_correct_user
     if @current_user.id!=params[:id].to_i
-      flash[:notice]="あなたにはその権限がありません"
+      flash[:alert]="あなたにはその権限がありません"
       redirect_to("/users/index")
     end
   end
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   def authenticate_review
     @review=Review.find_by(id: params[:id])
     if @review.user_id!=@current_user.id
-      flash[:notice]="あなたにはその権限がありません"
+      flash[:alert]="あなたにはその権限がありません"
       redirect_to("/posts/#{@review.post_id}/show")
     end
   end

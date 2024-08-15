@@ -29,10 +29,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    if @user.nil?
-      flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
-    elsif @user.update(name: params[:name], email: params[:email], password: params[:password])
+    if @user.update(name: params[:name], email: params[:email], password: params[:password])
       flash[:notice] = "アカウントを編集しました"
       redirect_to("/users/index")
     else
@@ -55,15 +52,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    if @user.nil?
-      flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
-    elsif @user.destroy
+    if @user.destroy
+      session[:user_id] =nil
       flash[:notice] = "アカウントを削除しました"
-      redirect_to("/users/index")
+      redirect_to("/login")
     else
       flash[:alert] = "アカウントを削除できませんでした"
-      render("users/index")
+      render("users/show")
     end
   end
 
