@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "likes/:post_id/judge" => "likes#judge"
+
   get "posts/:user_id/detail" => "posts#detail"
 
   post "reviews/create" => "reviews#create"

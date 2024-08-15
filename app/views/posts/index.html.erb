@@ -4,6 +4,7 @@
     <div>
     <li>
     <%=link_to(post.title,"/posts/#{post.id}/show")%>
+    <%=link_to "いいね","/likes/#{post.id}/judge",  data: { 'turbo-method' => :post }%>
     </li>
     </div>
     <%end%>
@@ -12,3 +13,4 @@
 <div>
 <%=link_to("新規投稿","/posts/new")%>
 </div>
+
