@@ -7,19 +7,25 @@
     <input type="text" name="title" id="title" value="<%= @post.title %>">
 </div>
 
-  <div>
+<div>
     <label for="genre" class="form-label">ジャンル</label>
     <select class="form-select" name="genre" id="genre">
-      <option value="SF">SF</option>
-      <option value="アクション">アクション</option>
-      <option value="コメディー">コメディー</option>
+      <option value="SF" <%= "selected" if @post.genre == "SF" %>>SF</option>
+      <option value="アクション" <%= "selected" if @post.genre == "アクション" %>>アクション</option>
+      <option value="コメディー" <%= "selected" if @post.genre == "コメディー" %>>コメディー</option>
     </select>
-  </div> 
+</div>
 
 <div>
     <label for="content">内容</label>
     <textarea rows="10" cols="50" name="content" id="content"><%= @post.content %></textarea>
   </div> 
+
+  <div>
+  <label for="point">点数</label>
+  <input type="number" id="point" name="point" value="<%=@post.point%>">
+  </div>
+
 
   <div>
   <label for="image">画像</label>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content], title: params[:title], genre: params[:genre],
-    user_id: @current_user.id,image_name: "default_post.jpg")
+    user_id: @current_user.id,image_name: "default_post.jpg",point: params[:point])
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post.title = params[:title]
     @post.genre = params[:genre]
     @post.content = params[:content]
-
+    @post.point= params[:point]
     if params[:image]
       @post.image_name = "#{@post.id}.jpg"
       image = params[:image]
@@ -72,5 +72,9 @@ class PostsController < ApplicationController
   end
   def comedy
     @posts=Post.where(genre: "コメディー")
+  end
+  def detail
+    @posts=Post.where(user_id: params[:user_id])
+    @user=User.find_by(id: params[:user_id])
   end
 end

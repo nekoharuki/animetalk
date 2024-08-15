@@ -22,8 +22,10 @@
     <%end%>
 
     <p>コメント: <%=@post.content%></p>
+    <p>点数: <%=@post.point%></p>
+
     <p>投稿者:
-    <%=link_to(@user.name,"/users/#{@user.id}/show") %>
+    <%=link_to(@user.name,"/posts/#{@user.id}/detail") %>
     </p>
     <p>投稿日: <%=@post.created_at%></p>
     <p>画像:</p>

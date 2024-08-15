@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "posts/:user_id/detail" => "posts#detail"
+
   post "reviews/create" => "reviews#create"
   get "reviews/:id/edit" => "reviews#edit"
   post "reviews/:id/update" => "reviews#update"

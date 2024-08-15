@@ -1,0 +1,10 @@
+<h1><%=@user.name%>の投稿ページ</h1>
+<ul>
+<%@posts.each do |post|%>
+<li>
+<%=link_to(post.title,"/posts/#{post.id}/show")%>
+</li>
+<%end%>
+</ul>
+<br>
+<%=link_to("一覧へ","/posts/index")%>
