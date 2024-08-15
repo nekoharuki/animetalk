@@ -4,7 +4,7 @@
 
 <div>
     <label for="title">名前</label>
-    <input type="text" name="title" id="title" value="<%= @post.title %>">
+    <input type="text" name="title" id="title" value="<%= @post.title %>" required>
 </div>
 
 <div>
@@ -18,18 +18,18 @@
 
 <div>
     <label for="content">内容</label>
-    <textarea rows="10" cols="50" name="content" id="content"><%= @post.content %></textarea>
+    <textarea rows="10" cols="50" name="content" id="content" required><%= @post.content %></textarea>
   </div> 
 
   <div>
   <label for="point">点数</label>
-  <input type="number" id="point" name="point" value="<%=@post.point%>">
+  <input type="number" id="point" name="point" value="<%=@post.point%>" required>
   </div>
 
 
   <div>
   <label for="image">画像</label>
-  <input name="image" type="file">
+  <input name="image" type="file" required>
   </div>
   
 

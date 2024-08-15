@@ -62,11 +62,11 @@
 <h1>レビューを投稿</h1>
 <div>
     <label for="comment">レビュー</label>
-    <textarea rows="10" cols="50" name="comment" id="comment"></textarea>
+    <textarea rows="10" cols="50" name="comment" id="comment" required></textarea>
 </div>
 <div>
     <label for="point">評価点数</label>
-    <input type="number" name="point" id="point">
+    <input type="number" name="point" id="point" required>
 </div>
 <input type="hidden" name="post_id" value="<%=@post.id%>">
 <br>

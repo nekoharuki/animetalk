@@ -3,11 +3,11 @@
 <%= form_tag("/reviews/#{@review.id}/update") do %>
 <div>
     <label for="comment">レビュー</label>
-    <textarea rows="10" cols="50" name="comment" id="comment"><%=@review.comment%></textarea>
+    <textarea rows="10" cols="50" name="comment" id="comment" required><%=@review.comment%></textarea>
 </div>
 <div>
     <label for="point">評価点数</label>
-    <input type="number" name="point" id="point" value="<%=@review.point%>">
+    <input type="number" name="point" id="point" value="<%=@review.point%>" required>
 </div>
 <br>
     <input type="submit" value="編集">
