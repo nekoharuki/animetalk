@@ -7,4 +7,16 @@
 <%end%>
 </ul>
 <br>
+<%=link_to("新規投稿","/posts/new")%>
+
+<h1><%=@user.name%>のいいねした投稿一覧</h1>
+<ul>
+<%@likes.each do |like|%>
+<%@post=Post.find_by(id: like.post_id)%>
+<li>
+<%=link_to(@post.title,"/posts/#{@post.id}/show")%>
+</li>
+<%end%>
+</ul>
+
 <%=link_to("一覧へ","/posts/index")%>

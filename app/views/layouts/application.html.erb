@@ -22,6 +22,9 @@
   <%=link_to("ユーザー情報","/users/#{@current_user.id}/show")%>
 </li>
 <li>
+  <%=link_to("投稿情報","/posts/#{@current_user.id}/detail")%>
+</li>
+<li>
   <%=link_to("ユーザー一覧","/users/index")%>
 </li>
 <li>
@@ -30,13 +33,15 @@
 
 <%else%>
 <li>
+  <%=link_to("ホーム","/")%>
+</li>
+<li>
   <%=link_to("新規登録","/users/new")%>
 </li>
 <li>
   <%=link_to("ログイン","/login")%>
 </li>
 <%end%>
-
 <ul>
 
 <%if flash[:notice]%>
