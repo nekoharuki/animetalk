@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content], title: params[:title], genre: params[:genre],
-    user_id: @current_user.id,image_name: "default_post.jpg",point: params[:point])
+    user_id: @current_user.id,image: params[:image],point: params[:point])
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
@@ -33,9 +33,9 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     @post.point= params[:point]
     if params[:image]
-      @post.image_name = "#{@post.id}.jpg"
+      @post.image = "#{@post.id}.jpg"
       image = params[:image]
-      File.binwrite("public/post_images/#{@post.image_name}", image.read)
+      File.binwrite("public/post_images/#{@post.image}", image.read)
     end
 
     if @post.save

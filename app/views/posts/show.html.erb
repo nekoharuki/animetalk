@@ -23,14 +23,11 @@
     <p>いいねの数: <%=@likes_count%></p>
     <p>コメント: <%=@post.content%></p>
     <p>点数: <%=@post.point%></p>
-
-    <p>投稿者:
-    <%=link_to(@user.name,"/posts/#{@user.id}/detail") %>
-    </p>
     <p>投稿日: <%=@post.created_at%></p>
     <p>画像:</p>
-    <img src="<%= "/post_images/#{@post.image_name}" %>">
+<%= image_tag @post.image.url %>
 </div>
+
 <%if @current_user.id==@user.id %>
 <%=link_to("編集","/posts/#{@post.id}/edit")%>
 <%= link_to "削除", "/posts/#{@post.id}/destroy", data: { 'turbo-method' => :post } %>

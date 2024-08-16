@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  mount_uploader :image, ImageUploader
   validates :content, presence: true
   validates :user_id, presence: true
   validates :title, presence: true
