@@ -2,9 +2,9 @@
 
 <%= form_tag("/posts/create",{multipart: true}) do %>
 
-   <div>
-    <label for="title">名前</label>
-    <input type="text" name="title" id="title" required>
+  <div class="mb-3">
+    <label for="title" class="form-label">タイトル</label>
+    <input type="text" class="form-control" id="title" name="title" required>
   </div>
 
  <div>
@@ -16,25 +16,21 @@
     </select>
   </div> 
 
-  <div>
-    <label for="content">内容</label>
-    <textarea rows="10" cols="50" name="content" id="content" required></textarea>
-  </div>
-  
-  <div>
-  <label for="point">点数</label>
-  <input type="number" id="point" name="point" required>
-  </div>
-  
-  <div>
-  <label for="image">画像</label>
-  <input name="image" type="file" required>
-  </div>
-  
-
-  <input type="submit" value="投稿">
-<% end %> 
-<br>
-<div>
-  <%= link_to("一覧へ", "/posts/index") %>
+<div class="mb-3">
+  <label for="content" class="form-label">内容</label>
+    <textarea class="form-control" rows="10" cols="50" name="content" id="content" required></textarea>
 </div>
+
+  <div class="mb-3">
+    <label for="point" class="form-label">点数</label>
+    <input type="number" class="form-control" id="point" name="point" min="0" max="100" required>
+  </div>
+
+<div class="mb-3">
+  <label for="image" class="form-label">画像</label>
+  <input class="form-control" type="file" id="image" name="image" required>
+</div>
+
+  <button type="submit" class="btn btn-primary">新規投稿</button>
+
+<% end %> 

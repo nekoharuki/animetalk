@@ -7,7 +7,7 @@
 <%end%>
 </ul>
 <br>
-<%=link_to("新規投稿","/posts/new")%>
+<%=link_to "新規投稿","/posts/new",class: "btn btn-success" %>
 
 <h1><%=@user.name%>のいいねした投稿一覧</h1>
 <ul>
@@ -19,4 +19,3 @@
 <%end%>
 </ul>
 
-<%=link_to("一覧へ","/posts/index")%>

@@ -1,15 +1,12 @@
 <h1><%=@user.name%>の詳細ページ</h1>
 
-<div>
-    <p>name: <%=@user.name%></p>
+  <div class="mb-3">
+    <h5>name: <%=@user.name%></h5>
 </div>
 
-<div>
-    <p>email: <%=@user.email%></p>
+  <div class="mb-3">
+    <h5>email: <%=@user.email%></h5>
 </div>
 
-<%=link_to("編集","/users/#{@user.id}/edit")%>
-<%= link_to "削除", "/users/#{@user.id}/destroy", data: { 'turbo-method' => :post } %>
-<br>
-<br>
-<%=link_to("一覧へ","/users/index")%>
+<%=link_to "編集","/users/#{@user.id}/edit",class: "btn btn-success" %>
+<%= link_to "削除", "/users/#{@user.id}/destroy", data: { 'turbo-method' => :post } ,class: "btn btn-danger" %>

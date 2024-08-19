@@ -1,23 +1,21 @@
 <h1>アカウント新規登録</h1>
 <%= form_tag("/users/create") do %>
 
-<div>
-<p>name</p>
-<input type="text" name="name" required>
-</div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
 
-<div>
-<p>email</p>
-<input type="email" name="email" required>
-</div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
+  </div>
 
-<div>
-<p>password</p>
-<input type="password" name="password" required>
-</div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
 
-<br>
+  <button type="submit" class="btn btn-primary">新規登録</button>
 
-<input type="submit">
-
-<%end%>
+<% end %>

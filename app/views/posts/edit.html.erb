@@ -2,10 +2,11 @@
 
 <%= form_tag("/posts/#{@post.id}/update",{multipart: true}) do %>
 
-<div>
-    <label for="title">名前</label>
-    <input type="text" name="title" id="title" value="<%= @post.title %>" required>
-</div>
+  <div class="mb-3">
+    <label for="title" class="form-label">タイトル</label>
+    <input type="text" class="form-control" id="title" name="title" value="<%=@post.title%>" required>
+  </div>
+
 
 <div>
     <label for="genre" class="form-label">ジャンル</label>
@@ -16,26 +17,24 @@
     </select>
 </div>
 
-<div>
-    <label for="content">内容</label>
-    <textarea rows="10" cols="50" name="content" id="content" required><%= @post.content %></textarea>
-  </div> 
-
-  <div>
-  <label for="point">点数</label>
-  <input type="number" id="point" name="point" value="<%=@post.point%>" required>
-  </div>
-
-
-  <div>
-  <label for="image">画像</label>
-  <input name="image" type="file" required>
-  </div>
-  
-
-  <input type="submit" value="更新">
-<% end %> 
-<br>
-<div>
-  <%= link_to("詳細ページへ", "/posts/#{@post.id}/show") %>
+<div class="mb-3">
+  <label for="content" class="form-label">内容</label>
+    <textarea class="form-control" rows="10" cols="50" name="content" id="content" required><%=@post.content%></textarea>
 </div>
+
+  <div class="mb-3">
+    <label for="point" class="form-label">点数</label>
+    <input type="number" class="form-control" id="point" name="point" min="0" max="100" value="<%=@post.point%>" required>
+  </div>
+
+<div class="mb-3">
+  <label for="image" class="form-label">画像</label>
+  <input class="form-control" type="file" id="image" name="image" required>
+  <div class="mt-2">
+  <%= image_tag @post.image.url, class: "img-thumbnail", alt: "投稿画像" %>
+  </div>
+</div>
+
+  <button type="submit" class="btn btn-primary">投稿編集</button>
+
+<% end %> 

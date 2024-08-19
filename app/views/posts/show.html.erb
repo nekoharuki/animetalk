@@ -20,6 +20,8 @@
     <%=link_to(@post.genre,"/posts/comedy")%>
     </p>
     <%end%>
+    <p>投稿者: <%=link_to "#{@user.name}","/posts/#{@user.id}/detail"%>
+    </p>
     <p>いいねの数: <%=@likes_count%></p>
     <p>コメント: <%=@post.content%></p>
     <p>点数: <%=@post.point%></p>
@@ -27,10 +29,10 @@
     <p>画像:</p>
 <%= image_tag @post.image.url %>
 </div>
-
+<br>
 <%if @current_user.id==@user.id %>
-<%=link_to("編集","/posts/#{@post.id}/edit")%>
-<%= link_to "削除", "/posts/#{@post.id}/destroy", data: { 'turbo-method' => :post } %>
+<%=link_to "編集","/posts/#{@post.id}/edit",class: "btn btn-success"%>
+<%= link_to "削除", "/posts/#{@post.id}/destroy",class: "btn btn-danger", data: { 'turbo-method' => :post } %>
 <%end%>
 <br>
 
@@ -42,32 +44,30 @@
         <p>コメント: <%= review.comment %></p>
         <p>評価点数: <%= review.point %></p>
         <p>投稿日: <%= review.created_at %></p>
-        <p>投稿者:
-            <%=link_to(@user.name,"/users/#{@user.id}/show")%>
+    <p>投稿者: <%=link_to "#{@user.name}","/posts/#{@user.id}/detail"%>
         </p>
     </div>
     <% if @current_user.id==review.user_id %>
-    <%=link_to("編集","/reviews/#{review.id}/edit")%>
-    <%= link_to "削除", "/reviews/#{review.id}/destroy", data: { 'turbo-method' => :post } %>
+    <%=link_to "編集","/reviews/#{review.id}/edit",class: "btn btn-success"%>
+    <%= link_to "削除", "/reviews/#{review.id}/destroy", data: { 'turbo-method' => :post },class: "btn btn-danger"%>
 
     <%end%>
 <% end %>
-<p>-----------------------------------------------------------</p>
 <br>
 
 <%= form_tag("/reviews/create") do %>
 <h1>レビューを投稿</h1>
-<div>
-    <label for="comment">レビュー</label>
-    <textarea rows="10" cols="50" name="comment" id="comment" required></textarea>
+<div class="mb-3">
+  <label for="comment" class="form-label">コメント</label>
+    <textarea class="form-control" rows="10" name="comment" id="comment" required></textarea>
 </div>
-<div>
-    <label for="point">評価点数</label>
-    <input type="number" name="point" id="point" required>
+
+<div class="mb-3">
+  <label for="point" class="form-label">評価点数</label>
+    <input type="number" class="form-control" id="point" name="point" required>
 </div>
+
+
 <input type="hidden" name="post_id" value="<%=@post.id%>">
-<br>
-    <input type="submit" value="レビューを投稿">
+  <button type="submit" class="btn btn-primary">レビュー編集</button>
 <%end%>
-<br>
-<%=link_to("一覧へ","/posts/index")%>
