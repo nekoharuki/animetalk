@@ -31,14 +31,15 @@ class PostsController < ApplicationController
     @post.title = params[:title]
     @post.genre = params[:genre]
     @post.content = params[:content]
-    @post.point= params[:point]
-    if params[:image]
-      @post.image = "#{@post.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/post_images/#{@post.image}", image.read)
-    end
+    @post.point = params[:point]
+
+    original_image_url = @post.image.url
+
+    @post.image = params[:image]
 
     if @post.save
+      Cloudinary::Uploader.destroy(original_image_url)
+
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
@@ -46,7 +47,6 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
-
   def show
     @post = Post.find_by(id: params[:id])
     @user=@post.user

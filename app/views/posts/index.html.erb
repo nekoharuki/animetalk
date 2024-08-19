@@ -16,8 +16,8 @@
     <% end %>
     <%end%>
 
-    <%@num=Like.where(post_id: post.id).count%>
-    <p>いいね数: <%=@num%></p>
+    <%@good=Like.where(post_id: post.id).count%>
+    <p>いいね数: <%=@good%></p>
 
     </li>
     </div>
