@@ -34,8 +34,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-
   def render_404
     respond_to do |format|
       format.html { render file: Rails.public_path.join('404.html'), status: :not_found }

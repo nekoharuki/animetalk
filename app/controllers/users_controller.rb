@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if @user.nil?
       flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
+      redirect_to("/posts/index")
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if @user.nil?
       flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
+      redirect_to("/posts/index")
     end
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if @user.update(name: params[:name], email: params[:email], password: params[:password])
       flash[:notice] = "アカウントを編集しました"
-      redirect_to("/users/index")
+      redirect_to("/posts/index")
     else
       flash[:alert] = "アカウントを編集ができませんでした"
       render("users/edit")
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "アカウントを登録しました"
-      redirect_to("/users/index")
+      redirect_to("/posts/index")
     else
       flash[:alert] = "アカウントの登録ができませんでした"
       render("users/new")

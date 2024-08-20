@@ -34,7 +34,12 @@
                 <a class="nav-link" href="/posts/<%= @current_user.id %>/good">ユーザー投稿いいね一覧</a>
                 <a class="nav-link" href="/users/<%= @current_user.id %>/show">ユーザー情報</a>
                 <a class="nav-link" href="/logout">ログアウト</a>
-                <a class="nav-link"><%= @current_user.name %></a>
+                <a class="nav-link">
+                  <i class="fa-solid fa-user"></i>
+                  <% if @current_user %>
+                    <%= @current_user.name %>でログイン中
+                  <% end %>
+                </a>              
               <% else %>
                 <a class="nav-link" href="/">ホーム</a>
                 <a class="nav-link" href="/users/new">新規登録</a>
@@ -62,7 +67,7 @@
       <%= yield %>
     </main>
 
-    <footer class="footer bg-dark py-3 mt-auto">
+    <footer class="footer bg-primary py-3 mt-auto">
       <div class="container">
         <span class="text-muted">&copy; AnimeTalk</span>
       </div>

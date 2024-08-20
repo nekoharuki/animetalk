@@ -7,34 +7,33 @@
     <input type="text" class="form-control" id="title" name="title" value="<%=@post.title%>" required>
   </div>
 
-
-<div>
+  <div>
     <label for="genre" class="form-label">ジャンル</label>
     <select class="form-select" name="genre" id="genre">
       <option value="SF" <%= "selected" if @post.genre == "SF" %>>SF</option>
       <option value="アクション" <%= "selected" if @post.genre == "アクション" %>>アクション</option>
       <option value="コメディー" <%= "selected" if @post.genre == "コメディー" %>>コメディー</option>
     </select>
-</div>
+  </div>
 
-<div class="mb-3">
-  <label for="content" class="form-label">内容</label>
+  <div class="mb-3">
+    <label for="content" class="form-label">内容</label>
     <textarea class="form-control" rows="10" cols="50" name="content" id="content" required><%=@post.content%></textarea>
-</div>
+  </div>
 
   <div class="mb-3">
     <label for="point" class="form-label">点数</label>
     <input type="number" class="form-control" id="point" name="point" min="0" max="100" value="<%=@post.point%>" required>
   </div>
 
-<div class="mb-3">
-  <label for="image" class="form-label">画像</label>
-  <input class="form-control" type="file" id="image" name="image" required>
-  <div class="mt-2">
-  <%= image_tag @post.image.url, class: "img-thumbnail", alt: "投稿画像" %>
+  <div class="mb-3">
+    <label for="image" class="form-label">画像</label>
+    <input class="form-control" type="file" id="image" name="image" required>
+    <div class="mt-2">
+      <%= image_tag @post.image.url, class: "img-thumbnail", alt: "投稿画像" %>
+    </div>
   </div>
-</div>
 
   <button type="submit" class="btn btn-primary">投稿編集</button>
 
-<% end %> 
+<% end %>

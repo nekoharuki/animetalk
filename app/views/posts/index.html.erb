@@ -20,25 +20,22 @@
                     <small class="text-muted">投稿者: <%= post.user.name %></small>
                 </p>
 
-        <p class="card-text">
-        <%good=Like.where(post_id: post.id).count%>
-        いいね数: <%=good%>
+                <p class="card-text">
+                    <% good = Like.where(post_id: post.id).count %>
+                    いいね数: <%= good %>
 
-    <%if post.user_id!=@current_user.id %>
-
-    <% if Like.find_by(post_id: post.id, user_id: @current_user.id) %>
-    <%= link_to "/likes/#{post.id}/destroy", data: { 'turbo-method' => :post } do %>
-    <i class="fa-sharp fa-solid fa-heart"></i>
-    <% end %>
-
-    <% else %>
-    <%= link_to "/likes/#{post.id}/create", data: { 'turbo-method' => :post } do %>
-    <i class="fa-regular fa-heart"></i>
-    <% end %>
-    <% end %>
-    <% end %>
-
-</p>
+                    <% if post.user_id != @current_user.id %>
+                        <% if Like.find_by(post_id: post.id, user_id: @current_user.id) %>
+                            <%= link_to "/likes/#{post.id}/destroy", data: { 'turbo-method' => :post } do %>
+                                <i class="fa-sharp fa-solid fa-heart"></i>
+                            <% end %>
+                        <% else %>
+                            <%= link_to "/likes/#{post.id}/create", data: { 'turbo-method' => :post } do %>
+                                <i class="fa-regular fa-heart"></i>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </p>
 
                 <br>
                 <a class="btn btn-primary" href="/posts/<%= post.id %>/show"><%= post.title %>の詳細</a>
