@@ -3,12 +3,12 @@
 <%= form_tag("/reviews/#{@review.id}/update") do %>
 <div class="mb-3">
   <label for="comment" class="form-label">コメント</label>
-    <textarea class="form-control" rows="10" cols="50" name="comment" id="comment" required><%=@review.comment%></textarea>
+    <textarea class="form-control" rows="8" cols="50" name="comment" id="comment" required><%=@review.comment%></textarea>
 </div>
 
 <div class="mb-3">
-  <label for="point" class="form-label">評価点数</label>
-    <input type="number" class="form-control" id="point" name="point" value="<%=@review.point%>" required>
+  <label for="point" class="form-range">評価点数</label>
+  <input class="form-range" type="range" min="1" max="5" name="point" id="point" value="<%=@review.point%>" required>
 </div>
 
   <button type="submit" class="btn btn-primary">レビュー編集</button>

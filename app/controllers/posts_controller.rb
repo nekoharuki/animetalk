@@ -77,6 +77,9 @@ class PostsController < ApplicationController
   def detail
     @posts=Post.where(user_id: params[:user_id])
     @user=User.find_by(id: params[:user_id])
-    @likes=Like.where(user_id: @user.id)
+  end
+  def good
+    @likes=Like.where(user_id: params[:user_id])
+    @user=User.find_by(id: params[:user_id])
   end
 end
