@@ -16,7 +16,10 @@ test:
   database: animetalk_test
 
 production:
-  <<: *default
-  database: animetalk_production
-  username: animetalk
-  password: <%= ENV['ANIMETALK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
