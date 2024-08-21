@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'pg', '>= 0.18', '< 2.0'
+
 # Gemfile
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary', '~> 1.16'
