@@ -13,8 +13,8 @@
 #   <<: *default
 #   database: animetalk_test
 
-# production:
-#   <<: *default
-#   database: animetalk_production
-#   username: animetalk
-#   password: <%= ENV['DATABASE_PASSWORD'] %>
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
