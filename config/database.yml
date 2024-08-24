@@ -1,20 +1,20 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: postgres
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   username: postgres
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
 
-development:
-  <<: *default
-  database: animetalk_development
+# development:
+#   <<: *default
+#   database: animetalk_development
 
-test:
-  <<: *default
-  database: animetalk_test
+# test:
+#   <<: *default
+#   database: animetalk_test
 
-production:
-  <<: *default
-  database: animetalk_production
-  username: animetalk
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: animetalk_production
+#   username: animetalk
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
