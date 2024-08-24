@@ -1,5 +1,5 @@
 # config/initializers/cloudinary.rb
-require 'dotenv/load'
+require 'dotenv/load' if Rails.env.production?
 
 Cloudinary.config do |config|
   config.cloud_name = ENV['CLOUDINARY_CLOUD_NAME']
