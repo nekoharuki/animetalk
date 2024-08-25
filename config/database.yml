@@ -18,5 +18,4 @@ production:
   encoding: unicode
   pool: 5
   username: postgres
-  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
