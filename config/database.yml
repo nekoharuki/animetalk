@@ -17,5 +17,4 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: postgres
   url: <%= ENV['DATABASE_URL'] %>
