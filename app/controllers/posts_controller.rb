@@ -38,8 +38,8 @@ class PostsController < ApplicationController
     @post.image = params[:image]
 
     if @post.save
-      Cloudinary::Uploader.destroy(original_image_url)
-
+      public_id = original_image_url.split('/').last.split('.').first
+      Cloudinary::Uploader.destroy(public_id)
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
