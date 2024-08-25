@@ -10,5 +10,5 @@ class Post < ApplicationRecord
   def user
     return User.find_by(id: self.user_id)
   end
-  has_many :like, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
