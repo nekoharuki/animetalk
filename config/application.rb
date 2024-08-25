@@ -22,7 +22,7 @@ module Animetalk
     # Load environment variables from config/local_env.yml if it exists
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
-      if File.exists?(env_file)
+      if File.exist?(env_file)
         YAML.load(File.open(env_file)).each do |key, value|
           ENV[key.to_s] = value
         end
